@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Posts</h1>
-
+<%= attachment_image_tag @user, :profile_image, size:"60x60", fallback: "no_image.jpg"%>
 <div class="container">
   <div class="row">
     <div class="col-lg-4" style="background-color: orange;">

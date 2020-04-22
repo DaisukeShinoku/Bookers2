@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>User info</h1>
+
+<%= form_for(@user) do |f| %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, id: :user_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image %>
+    <div class="user-edit-image">
+    <%= f.attachment_field :profile_image %>
+  </div>
+
+  <div class="field">
+    <%= f.label :introduction %>
+    <%= f.text_area :introduction, id: :user_introduction %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+
+<%= link_to 'Show', @book %> |
+<%= link_to 'Back', books_path %>
