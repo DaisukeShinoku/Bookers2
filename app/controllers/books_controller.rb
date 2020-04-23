@@ -5,8 +5,14 @@ class BooksController < ApplicationController
     def create
     	@book = Book.new(book_params)
     	@book.user_id = current_user.id
-   		@book.save
+   		if @book.save
     	redirect_to book_path(@book.id)
+        else
+            @books = Book.all
+            @user = current_user
+            render action: :index
+    # indexのアクションを無視してインデックスに行く（再定義した理由）／renderの上に書くこと/newもコピペするとミスデータが上書きされる
+        end
     end
     def index
     	@books = Book.all
@@ -29,7 +35,6 @@ class BooksController < ApplicationController
     	@book.destroy
     	redirect_to books_path
     end
-
     private
 
     	def book_params
