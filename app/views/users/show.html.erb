@@ -1,13 +1,27 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Posts</h1>
-<%= attachment_image_tag @user, :profile_image, size:"60x60", fallback: "no_image.jpg"%>
 <div class="container">
   <div class="row">
-    <div class="col-lg-4" style="background-color: orange;">
-      <h2>サイドバー</h2>
+    <div class="col-lg-4">
+      <h2>User info</h2>
+      <p><%= attachment_image_tag @user, :profile_image, size:"60x60", fallback: "no_image.jpg"%></p>
+      <table class="table table-striped">
+        <tbody>
+          <tr></tr>
+          <tr>
+            <th>name</th>
+            <th><%= @user.name %></th>
+          </tr>
+          <tr>
+            <th>introduction</th>
+            <th><%= @user.introduction %></th>
+          </tr>
+        </tbody>
+      </table>
+      <%= link_to "edit", edit_user_path, class: "btn btn-default" %>
     </div>
     <div class="col-lg-8">
+      <h1>Books</h1>
       <table class="table table-striped">
         <thead>
           <tr>
