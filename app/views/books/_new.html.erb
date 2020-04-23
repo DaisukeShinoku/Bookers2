@@ -1,0 +1,39 @@
+<div class="col-lg-3">
+      <h2>User info</h2>
+      <p><%= attachment_image_tag user, :profile_image, size:"60x60", fallback: "no_image.jpg"%></p>
+      <table class="table table-striped">
+        <tbody>
+          <tr></tr>
+          <tr>
+            <th>name</th>
+            <th><%= user.name %></th>
+          </tr>
+          <tr>
+            <th>introduction</th>
+            <th><%= user.introduction %></th>
+          </tr>
+        </tbody>
+      </table>
+
+      <%= link_to "edit", edit_user_path(current_user), class: "btn btn-default" %>
+
+      <h1>New Book</h1>
+
+      <%= form_for(book) do |f| %>
+
+      <div class="field">
+        <%= f.label :title %>
+        <%= f.text_field :title, id: :book_title %>
+      </div>
+
+      <div class="field">
+        <%= f.label :opinion %>
+        <%= f.text_area :body, id: :book_body %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+      <% end %>
+
+</div>

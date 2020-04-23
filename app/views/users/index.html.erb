@@ -1,13 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Users</h1>
-
 <div class="container">
   <div class="row">
-    <div class="col-lg-4" style="background-color: orange;">
-      <h2>サイドバー</h2>
-    </div>
-    <div class="col-lg-8">
+    <%= render partial: 'books/new', locals: {user:@user, book:Book.new} %>
+    <div class="col-lg-9">
+      <h1>Users</h1>
       <table class="table table-striped">
         <thead>
           <tr>
@@ -33,5 +30,4 @@
 
 <br>
 
-<%= link_to 'New Book', new_book_path, class: "btn btn-default" %>
 <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>

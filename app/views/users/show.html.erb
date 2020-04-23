@@ -2,25 +2,8 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-lg-4">
-      <h2>User info</h2>
-      <p><%= attachment_image_tag @user, :profile_image, size:"60x60", fallback: "no_image.jpg"%></p>
-      <table class="table table-striped">
-        <tbody>
-          <tr></tr>
-          <tr>
-            <th>name</th>
-            <th><%= @user.name %></th>
-          </tr>
-          <tr>
-            <th>introduction</th>
-            <th><%= @user.introduction %></th>
-          </tr>
-        </tbody>
-      </table>
-      <%= link_to "edit", edit_user_path, class: "btn btn-default" %>
-    </div>
-    <div class="col-lg-8">
+    <%= render partial: 'books/new', locals: {user:@user, book:Book.new} %>
+    <div class="col-lg-9">
       <h1>Books</h1>
       <table class="table table-striped">
         <thead>
@@ -50,5 +33,4 @@
 
 <br>
 
-<%= link_to 'New Book', new_book_path, class: "btn btn-default" %>
 <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>

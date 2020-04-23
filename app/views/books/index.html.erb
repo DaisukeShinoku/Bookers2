@@ -1,16 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Posts</h1>
-
 <div class="container">
   <div class="row">
-    <div class="col-lg-4" style="background-color: orange;">
-      <h2>サイドバー</h2>
-    </div>
-    <div class="col-lg-8">
+    <%= render partial: 'books/new', locals: {user:@user, book:Book.new} %>
+    <div class="col-lg-9">
+      <h1>Books</h1>
       <table class="table table-striped">
         <thead>
           <tr>
+            <th></th>
             <th>Title</th>
             <th>Body</th>
             <th colspan="4"></th>
@@ -20,6 +18,7 @@
         <tbody>
           <% @books.each do |book| %>
             <tr>
+              <td><%= attachment_image_tag book.user, :profile_image, size:"60x60", fallback: "no_image.jpg"%></td>
               <td><%= book.title %></td>
               <td><%= book.body %></td>
               <td><%= link_to 'Show', book %></td>
@@ -35,5 +34,4 @@
 
 <br>
 
-<%= link_to 'New Book', new_book_path, class: "btn btn-default" %>
 <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
