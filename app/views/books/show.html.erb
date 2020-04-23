@@ -7,16 +7,26 @@
       <%= render partial: 'books/new', locals: {user:@user, book:Book.new} %>
 
     <div class="col-lg-9">
-      <p><strong>Title:</strong><%= @book.title %></p>
-	  <p><strong>Body:</strong><%= @book.body %></p>
+      <h2>Book detail</h2>
+    	<table class="table table-striped">
+        <tbody>
+          <tr></tr>
+          <tr>
+            <th><%= attachment_image_tag @book.user, :profile_image, size:"60x60", fallback: "no_image.jpg"%><%= @user.name %></th>
+            <th><%= @book.title %></th>
+            <th><%= @book.body %></th>
 
-	  <%= link_to 'Edit', edit_book_path(@book) %> |
+            <% if @book.user == current_user %>
+            <th><%= link_to 'Edit', edit_book_path(@book) %></th>
+            <th><%= link_to 'Destroy', @book, method: :delete, data: { confirm: 'Are you sure?' } %></th>
+            <% end %>
+
+          </tr>
+        </tbody>
+      </table>
 	  <%= link_to 'Back', books_path %>
     </div>
   </div>
 </div>
 
 <br>
-
-<%= link_to 'New Book', new_book_path, class: "btn btn-default" %>
-<%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
