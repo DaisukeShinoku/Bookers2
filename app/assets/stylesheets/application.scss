@@ -16,6 +16,12 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+.header_title{
+	color:white;
+	padding-top:10px;
+	font-size:20px;
+}
+
 body{
 	padding-top:50px;
 }
@@ -35,4 +41,22 @@ textarea{
 
 .actions{
 	margin-bottom: 10px;
+}
+
+a:link{
+	color:#337ab7;
+}
+
+a:visited{
+	color:#666666;
+}
+
+a:hover{
+	color:#337ab7;
+	background-color:#2b2b2b;
+	text-decoration:underline;
+}
+
+#notice{
+	color:green;
 }
