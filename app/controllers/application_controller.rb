@@ -5,9 +5,6 @@ class ApplicationController < ActionController::Base
     user_path(@user) # ログイン後に遷移するpathを設定
   end
 
-  def after_sign_out_path_for(resource)
-    home_top_path # ログアウト後に遷移するpathを設定
-  end
   protected
   def configure_permitted_parameters
     added_attrs = [ :email, :name, :password, :password_confirmation ]
