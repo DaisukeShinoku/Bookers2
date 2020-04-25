@@ -1,18 +1,18 @@
-<% if @book.errors.any? %>
-  <h3><%= @book.errors.count %>errors prohibited this book from being saved:</h3>
-  <% @book.errors.full_messages.each do |message| %>
-<ul>
-  <li><%= message %></li>
-</ul>
-
-<% end %>
-<% end %>
-
 <div class="container">
   <p id="notice"><%= notice %></p>
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
       <h1>Editing Book</h1>
+
+      <% if @book.errors.any? %>
+       <h3 class="error_message"><%= @book.errors.count %>errors prohibited this book from being saved:</h3>
+       <% @book.errors.full_messages.each do |message| %>
+       <ul class="error_message">
+        <li><%= message %></li>
+       </ul>
+
+       <% end %>
+       <% end %>
 
         <%= form_for(@book) do |f| %>
 
