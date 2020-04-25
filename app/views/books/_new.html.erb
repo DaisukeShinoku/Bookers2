@@ -1,4 +1,19 @@
-<div class="col-lg-3">
+<div class="container">
+<%= form_for(book) do |f| %>
+  <% if book.errors.any? %>
+  <h3><%= book.errors.count %>errors prohibited this book from being saved:</h3>
+  <% book.errors.full_messages.each do |message| %>
+<ul>
+  <li><%= message %></li>
+  <% end %>
+</ul>
+
+<% end %>
+  <% flash.each do |key, value| %>
+<%= content_tag :div, value, class: "flash flash-#{key}" %>
+<% end %>
+  <div class="row">
+    <div class="col-xs-3">
       <h2>User info</h2>
       <p><%= attachment_image_tag user, :profile_image, size:"60x60", fallback: "no_image.jpg"%></p>
       <table class="table table-striped">
@@ -14,13 +29,11 @@
           </tr>
         </tbody>
       </table>
-    <div class="field row">
-      <%= link_to "", edit_user_path(current_user), class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench" %>
-    </div>
+      <div class="field row">
+        <%= link_to "", edit_user_path(current_user), class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench" %>
+       </div>
 
       <h2 class="New_Book">New Book</h2>
-
-      <%= form_for(book) do |f| %>
 
         <div class="field row">
            <label for="book_title">Title</label>
@@ -36,5 +49,4 @@
               <input type="submit" name="commit" value="Create Book" class="btn btn-primary col-xs-12" data-disable-with="Create Book">
           </div>
       <% end %>
-
-</div>
+    </div>

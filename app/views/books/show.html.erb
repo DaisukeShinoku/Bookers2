@@ -1,9 +1,5 @@
-<div class="container">
-  <p id="notice"><%= notice %></p>
-  <div class="row">
-      <%= render partial: 'books/new', locals: {user:@user, book:Book.new} %>
-
-    <div class="col-lg-9">
+  <%= render partial: 'books/new', locals: {user:@user, book:Book.new} %>
+    <div class="col-xs-9">
       <h2>Book detail</h2>
     	<table class="table table-striped">
         <tbody>
@@ -24,5 +20,3 @@
     </div>
   </div>
 </div>
-
-<br>
