@@ -10,10 +10,13 @@ class BooksController < ApplicationController
         flash[:success] = 'You have creatad book successfully.'
     	redirect_to book_path(@book.id)
         else
-            redirect_back fallback_location: root_path
+            @user = current_user
+            @books = Book.all
+            render :index
         end
     end
     def index
+        @book = Book.new
     	@books = Book.all
         @user = current_user
     end
